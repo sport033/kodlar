@@ -7,7 +7,7 @@ var divData;
                 var times=Math.floor(Date.now() / 60000);
                 $("#eventlist").empty();
                  $.ajax({
-                    url: "https://cdn.nsxmedia.net/cdn/events.json?time="+times+"",
+                    url: "https://cdn.nsxserve.net/cdn/events.json?time="+times+"",
                     success: function(json) {
                         for(var i = 0; i < json.length; i++) {
                             var obj = json[i];
@@ -21,7 +21,7 @@ var divData;
                                  iconHtml='field-alt';
                             }
                             if (icons !='Snooker') { 
-                            $("#eventlist").append('<a href="https://golvar41.co/player.html?id='+obj.streamid+'&title='+obj.eventhome+' - '+obj.eventaway+'" class="eventClick '+obj.sport+' '+obj.id+'" dataId="'+obj.id+'" target="search_iframe" dataName="'+obj.eventhome+' - '+obj.eventaway+'"><div class="event even block"><div class="icon"><i class="icofont-'+iconHtml+'"></i></div><div class="live"><span><span style="color: black">'+obj.start+' </span>CANLI</span></div><div class="teams"><span>'+obj.eventhome+' - '+obj.eventaway+'</span></div><div class="league"><span>'+obj.sport+'</span></div><div class="clear"></div></div></a>');
+                            $("#eventlist").append('<a href="https://'+domain+'/player.html?id='+obj.streamid+'&title='+obj.eventhome+' - '+obj.eventaway+'" class="eventClick '+obj.sport+' '+obj.id+'" dataId="'+obj.id+'" target="search_iframe" dataName="'+obj.eventhome+' - '+obj.eventaway+'"><div class="event even block"><div class="icon"><i class="icofont-'+iconHtml+'"></i></div><div class="live"><span><span style="color: black">'+obj.start+' </span>CANLI</span></div><div class="teams"><span>'+obj.eventhome+' - '+obj.eventaway+'</span></div><div class="league"><span>'+obj.sport+'</span></div><div class="clear"></div></div></a>');
                             }
                          }
                         $(".SportSelect."+divData+"").trigger("click");
